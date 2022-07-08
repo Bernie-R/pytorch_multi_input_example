@@ -48,11 +48,12 @@ class ImageDataset(Dataset):
 
 
 def conv_block(input_size, output_size):
-    block = nn.Sequential(
-        nn.Conv2d(input_size, output_size, (3, 3)), nn.ReLU(), nn.BatchNorm2d(output_size), nn.MaxPool2d((2, 2)),
+    return nn.Sequential(
+        nn.Conv2d(input_size, output_size, (3, 3)),
+        nn.ReLU(),
+        nn.BatchNorm2d(output_size),
+        nn.MaxPool2d((2, 2)),
     )
-
-    return block
 
 
 class LitClassifier(pl.LightningModule):

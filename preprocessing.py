@@ -36,9 +36,7 @@ def resize_images(images: List[str]):
 def remove_outliers(df: pd.DataFrame, col: str):
     q_low = df[col].quantile(0.02)
     q_hi = df[col].quantile(0.98)
-    df_filtered = df[(df[col] < q_hi) & (df[col] > q_low)]
-
-    return df_filtered
+    return df[(df[col] < q_hi) & (df[col] > q_low)]
 
 
 images = os.listdir(f"{data_path}images")
